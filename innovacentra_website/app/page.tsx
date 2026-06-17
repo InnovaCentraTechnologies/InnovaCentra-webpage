@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
-import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, PenTool, BarChart3, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake } from "lucide-react";
+import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, Settings, Share2, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake } from "lucide-react";
 
 export default function Home() {
   const services = [
     { title: "Web Development", icon: <Code2 className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Scalable and responsive websites built with modern frameworks." },
-    { title: "Mobile App Development", icon: <Smartphone className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Cross-platform mobile applications for iOS and Android." },
+    { title: "Mobile Application", icon: <Smartphone className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Cross-platform mobile applications for iOS and Android." },
+    { title: "Custom Software Applications", icon: <Settings className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Bespoke software solutions tailored to address your business challenges." },
+    { title: "SaaS Applications", icon: <Cloud className="text-[var(--color-primary)] mb-4" size={32} />, desc: "End-to-end Software as a Service product design and development." },
     { title: "AI Solutions", icon: <Cpu className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Intelligent AI-powered tools and automations to scale your business." },
-    { title: "Cloud Solutions", icon: <Cloud className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Secure and scalable cloud architecture and DevOps." },
-    { title: "UI/UX Design", icon: <PenTool className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Intuitive, user-centered design and prototyping." },
-    { title: "Digital Marketing", icon: <BarChart3 className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Data-driven marketing and SEO to grow your audience." },
+    { title: "Social Media Marketing", icon: <Share2 className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Social media marketing services including WhatsApp, Facebook, Instagram, and more." },
   ];
 
   const processSteps = [
@@ -34,13 +34,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[var(--color-primary)] text-sm font-medium">
+              {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[var(--color-primary)] text-sm font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                 </span>
                 Where Innovation Finds Its Center
-              </div>
+              </div> */}
               <h1 className="text-5xl lg:text-6xl font-bold text-[var(--color-dark)] leading-tight tracking-tight">
                 Innovative IT Solutions for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">Digital Future</span>
               </h1>
@@ -73,14 +73,14 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Content */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-[var(--color-secondary)] text-sm font-medium">
+            <div className="space-y-8 lg:pr-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100/80 text-[var(--color-secondary)] text-sm font-bold tracking-widest uppercase">
                 Who We Are
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-dark)] leading-tight">
-                Empowering businesses <br className="hidden md:block"/> with digital excellence.
+              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-extrabold text-[var(--color-dark)] leading-[1.1] tracking-tight">
+                Empowering businesses <br className="hidden lg:block"/> with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-orange-500">digital excellence.</span>
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
                 InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products. We don't just build software; we build solutions that drive growth.
               </p>
               
@@ -99,7 +99,7 @@ export default function Home() {
             {/* Right Content - Core Values Grid */}
             <div className="grid sm:grid-cols-2 gap-6">
               
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group animate-float" style={{ animationDelay: '0s' }}>
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Target size={24} />
                 </div>
@@ -107,7 +107,7 @@ export default function Home() {
                 <p className="text-slate-600 text-sm">We deliver robust, scalable, and bug-free solutions adhering to the highest standards.</p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group sm:mt-10">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group animate-float" style={{ animationDelay: '0.5s' }}>
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Eye size={24} />
                 </div>
@@ -115,7 +115,7 @@ export default function Home() {
                 <p className="text-slate-600 text-sm">Clear communication and regular updates so you always know your project's status.</p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group animate-float" style={{ animationDelay: '1s' }}>
                 <div className="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Tag size={24} />
                 </div>
@@ -123,7 +123,7 @@ export default function Home() {
                 <p className="text-slate-600 text-sm">Premium software development at highly competitive and predictable pricing.</p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group sm:mt-10">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group animate-float" style={{ animationDelay: '1.5s' }}>
                 <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Handshake size={24} />
                 </div>

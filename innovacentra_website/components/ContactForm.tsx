@@ -72,24 +72,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Estimated Budget</label>
-            <input 
-              name="budget" 
-              list="budget-options" 
-              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all bg-white" 
-              placeholder="Select or type your budget..." 
-              required 
-            />
-            <datalist id="budget-options">
-              <option value="Under $1,000" />
-              <option value="$1,000 - $5,000" />
-              <option value="$5,000 - $10,000" />
-              <option value="$10,000+" />
-            </datalist>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Project Description</label>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Tell us about your need</label>
             <textarea name="description" rows={5} className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all resize-none" placeholder="Tell us about your project goals and requirements..." required></textarea>
           </div>
 

@@ -1,4 +1,4 @@
-import { Code2, Smartphone, Monitor, Cpu, Cloud, Settings, PenTool, BarChart3, Database, ShieldCheck } from "lucide-react";
+import { Code2, Smartphone, Monitor, Cpu, Cloud, Settings, Share2 , BarChart3} from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
@@ -9,14 +9,12 @@ export const metadata = {
 export default function ServicesPage() {
   const allServices = [
     { title: "Web Development", icon: <Code2 size={40} className="text-[var(--color-primary)]" />, desc: "Custom websites, enterprise portals, and scalable e-commerce platforms built using modern frameworks like React and Next.js." },
-    { title: "Mobile App Development", icon: <Smartphone size={40} className="text-[var(--color-primary)]" />, desc: "High-performance cross-platform applications for iOS and Android using Flutter and React Native." },
+    { title: "Mobile Applications", icon: <Smartphone size={40} className="text-[var(--color-primary)]" />, desc: "High-performance cross-platform applications for iOS and Android using Flutter and React Native." },
     { title: "Desktop Applications", icon: <Monitor size={40} className="text-[var(--color-primary)]" />, desc: "Robust and secure desktop applications tailored for Windows, macOS, and Linux environments." },
     { title: "Custom Software Development", icon: <Settings size={40} className="text-[var(--color-primary)]" />, desc: "Bespoke software solutions designed specifically to address your unique business challenges and workflows." },
-    { title: "SaaS Development", icon: <Cloud size={40} className="text-[var(--color-primary)]" />, desc: "End-to-end Software as a Service product development, from architecture design to deployment." },
+    { title: "SaaS Applications", icon: <Cloud size={40} className="text-[var(--color-primary)]" />, desc: "End-to-end Software as a Service product development, from architecture design to deployment." },
     { title: "AI Solutions", icon: <Cpu size={40} className="text-[var(--color-primary)]" />, desc: "Intelligent automations, machine learning models, and AI integrations to give your business a competitive edge." },
-    { title: "Cloud Solutions", icon: <Database size={40} className="text-[var(--color-primary)]" />, desc: "AWS and Azure cloud infrastructure setup, migration, and management for optimal scalability." },
-    { title: "DevOps Services", icon: <ShieldCheck size={40} className="text-[var(--color-primary)]" />, desc: "CI/CD pipelines, Docker containerization, and Kubernetes orchestration for rapid, reliable deployments." },
-    { title: "UI/UX Design", icon: <PenTool size={40} className="text-[var(--color-primary)]" />, desc: "User-centered design, wireframing, and interactive prototyping for seamless digital experiences." },
+    { title: "Social Media Marketing", icon: <Share2 size={40} className="text-[var(--color-primary)]" />, desc: "Social media marketing services including WhatsApp, Facebook, Instagram, and other digital channels to grow your business." },
     { title: "Digital Marketing", icon: <BarChart3 size={40} className="text-[var(--color-primary)]" />, desc: "Data-driven SEO, content marketing, and digital campaigns to drive traffic and conversions." },
   ];
 
