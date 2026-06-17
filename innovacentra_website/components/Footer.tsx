@@ -51,10 +51,6 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
             <ul className="space-y-2.5">
-              <li className="flex items-start gap-3">
-                <MapPin className="text-[var(--color-primary)] flex-shrink-0 mt-1" size={20} />
-                <span className="text-sm">Redhills, Chennai - 600052, India</span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-[var(--color-primary)] flex-shrink-0" size={20} />
                 <span className="text-sm">+91 8220614407</span>

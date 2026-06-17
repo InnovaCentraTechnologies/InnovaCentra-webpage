@@ -1,0 +1,10 @@
+{
+  "name": "innovacentra-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix innovacentra_website",
+    "build": "npm run build --prefix innovacentra_website",
+    "start": "npm run start --prefix innovacentra_website"
+  }
+}

@@ -84,16 +84,6 @@ export default function Home() {
                 InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products. We don't just build software; we build solutions that drive growth.
               </p>
               
-              <div className="pt-4 flex items-center gap-4">
-                <div className="flex -space-x-4">
-                  <div className="w-12 h-12 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-blue-600 font-bold">10+</div>
-                  <div className="w-12 h-12 rounded-full border-2 border-white bg-orange-100 flex items-center justify-center text-orange-600 font-bold">50+</div>
-                  <div className="w-12 h-12 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-slate-600 font-bold">24/7</div>
-                </div>
-                <div className="text-sm font-medium text-slate-600">
-                  Years of Expertise <br/> & Successful Projects
-                </div>
-              </div>
             </div>
 
             {/* Right Content - Core Values Grid */}
@@ -229,16 +219,6 @@ export default function Home() {
                 <h2 className="text-2xl font-bold mb-8">Get In Touch</h2>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
-                      <MapPin className="text-[var(--color-secondary)]" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Our Location</h3>
-                      <p className="text-slate-300">Redhills, Chennai - 600052,<br />India</p>
-                    </div>
-                  </div>
-
                   <div className="flex items-start gap-4">
                     <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
                       <Phone className="text-[var(--color-secondary)]" size={24} />

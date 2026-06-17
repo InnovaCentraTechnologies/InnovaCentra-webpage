@@ -15,8 +15,14 @@ export async function POST(request: Request) {
       }
     }
 
-    if (!sanitizedBody.fullName || !sanitizedBody.phone) {
-      return NextResponse.json({ success: false, error: "Missing required fields" }, { status: 400 });
+    if (sanitizedBody.type === 'contact') {
+      if (!sanitizedBody.fullName || !sanitizedBody.email || !sanitizedBody.phone || !sanitizedBody.company || !sanitizedBody.description) {
+        return NextResponse.json({ success: false, error: "Missing required fields for contact form" }, { status: 400 });
+      }
+    } else {
+      if (!sanitizedBody.fullName || !sanitizedBody.phone) {
+        return NextResponse.json({ success: false, error: "Missing required fields for callback form" }, { status: 400 });
+      }
     }
     
     const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
