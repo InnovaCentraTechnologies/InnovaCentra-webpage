@@ -12,7 +12,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
     
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const data = { ...Object.fromEntries(formData.entries()), type: 'contact' };
 
     try {
       const response = await fetch('/api/contact', {

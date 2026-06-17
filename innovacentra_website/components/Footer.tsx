@@ -22,9 +22,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2.5">
-              {['Home', 'About Us', 'Portfolio', 'Case Studies', 'Careers', 'Contact'].map((item) => (
+              {['Home', 'About', 'Portfolio', 'Technologies', 'Services', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`} className="hover:text-[var(--color-primary)] transition-colors text-sm flex items-center gap-2 group">
+                  <Link href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="hover:text-[var(--color-primary)] transition-colors text-sm flex items-center gap-2 group">
                     <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-[var(--color-primary)]" />
                     {item}
                   </Link>

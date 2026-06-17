@@ -11,16 +11,30 @@ export default function FloatingContact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleCallbackSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleCallbackSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name && phone) {
-      setFormSubmitted(true);
-      setTimeout(() => {
-        setFormSubmitted(false);
-        setShowCallbackForm(false);
-        setName("");
-        setPhone("");
-      }, 3000);
+      setIsSubmitting(true);
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'callback', fullName: name, phone: phone }),
+        });
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setShowCallbackForm(false);
+          setName("");
+          setPhone("");
+        }, 3000);
+      } catch (error) {
+        console.error("Failed to submit callback request");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -133,9 +147,10 @@ export default function FloatingContact() {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm hover:bg-orange-600 transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm hover:bg-orange-600 transition-colors disabled:opacity-70"
                     >
-                      Call Me Back
+                      {isSubmitting ? "Requesting..." : "Call Me Back"}
                     </button>
                   </form>
                 )}
