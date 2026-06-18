@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import SectionHeader from "@/components/SectionHeader";
+import ServiceCard from "@/components/ServiceCard";
 import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, Settings, Share2, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake } from "lucide-react";
 
 export default function Home() {
   const services = [
-    { title: "Web Development", icon: <Code2 className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Scalable and responsive websites built with modern frameworks." },
-    { title: "Mobile Application", icon: <Smartphone className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Cross-platform mobile applications for iOS and Android." },
-    { title: "Custom Software Applications", icon: <Settings className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Bespoke software solutions tailored to address your business challenges." },
-    { title: "SaaS Applications", icon: <Cloud className="text-[var(--color-primary)] mb-4" size={32} />, desc: "End-to-end Software as a Service product design and development." },
-    { title: "AI Solutions", icon: <Cpu className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Intelligent AI-powered tools and automations to scale your business." },
-    { title: "Social Media Marketing", icon: <Share2 className="text-[var(--color-primary)] mb-4" size={32} />, desc: "Social media marketing services including WhatsApp, Facebook, Instagram, and more." },
+    { title: "Web Development", icon: <Code2 size={28} />, desc: "Scalable and responsive websites built with modern frameworks.", accent: "blue" as const },
+    { title: "Mobile Application", icon: <Smartphone size={28} />, desc: "Cross-platform mobile applications for iOS and Android.", accent: "orange" as const },
+    { title: "Custom Software", icon: <Settings size={28} />, desc: "Bespoke software solutions tailored to address your business challenges.", accent: "blue" as const },
+    { title: "SaaS Applications", icon: <Cloud size={28} />, desc: "End-to-end Software as a Service product design and development.", accent: "orange" as const },
+    { title: "AI Solutions", icon: <Cpu size={28} />, desc: "Intelligent AI-powered tools and automations to scale your business.", accent: "blue" as const },
+    { title: "Social Media Marketing", icon: <Share2 size={28} />, desc: "Social media marketing services including WhatsApp, Facebook, Instagram, and more.", accent: "orange" as const },
   ];
 
   const processSteps = [
@@ -19,6 +21,7 @@ export default function Home() {
     { title: "Design", desc: "Crafting intuitive and beautiful UI." },
     { title: "Development", desc: "Writing clean, scalable code." },
     { title: "Deployment", desc: "Launching your product to the world." },
+    { title: "Service and maintenance", desc: "Providing ongoing support and updates." },
   ];
 
   const reasons = [
@@ -34,13 +37,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[var(--color-primary)] text-sm font-medium">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Where Innovation Finds Its Center
-              </div> */}
               <h1 className="text-5xl lg:text-6xl font-bold text-[var(--color-dark)] leading-tight tracking-tight">
                 Innovative IT Solutions for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">Digital Future</span>
               </h1>
@@ -74,16 +70,13 @@ export default function Home() {
             
             {/* Left Content */}
             <div className="space-y-8 lg:pr-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100/80 text-[var(--color-secondary)] text-sm font-bold tracking-widest uppercase">
-                Who We Are
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-extrabold text-[var(--color-dark)] leading-[1.1] tracking-tight">
-                Empowering businesses <br className="hidden lg:block"/> with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-orange-500">digital excellence.</span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-                InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products. We don't just build software; we build solutions that drive growth.
-              </p>
-              
+              <SectionHeader
+                badge="Who We Are"
+                titleStart="Empowering businesses with"
+                titleHighlight="digital excellence."
+                subtitle="InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products. We don't just build software; we build solutions that drive growth."
+                align="left"
+              />
             </div>
 
             {/* Right Content - Core Values Grid */}
@@ -128,21 +121,32 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 bg-slate-50 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-dark)] mb-4">Our Services</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">Comprehensive technology solutions tailored to your business needs.</p>
+      <section className="py-24 bg-slate-50 border-t border-slate-100 relative overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-blue-50 rounded-full blur-[100px] opacity-50"></div>
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-orange-50 rounded-full blur-[100px] opacity-50"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-16">
+            <SectionHeader
+              badge="Our Services"
+              titleStart="Comprehensive"
+              titleHighlight="Technology Solutions"
+              subtitle="Tailored to your business needs."
+              colorTheme="secondary"
+            />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                <div className="bg-slate-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-dark)] mb-3">{service.title}</h3>
-                <p className="text-slate-600">{service.desc}</p>
-              </div>
+              <ServiceCard
+                key={idx}
+                title={service.title}
+                description={service.desc}
+                icon={service.icon}
+                index={idx}
+                variant="compact"
+                accent={service.accent}
+              />
             ))}
           </div>
           <div className="text-center mt-12">
@@ -154,14 +158,25 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us & Process */}
-      <section className="py-24 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white border-t border-slate-100 relative overflow-hidden">
+        <div className="absolute -left-20 top-1/3 w-64 h-64 bg-blue-50 rounded-full blur-[80px] opacity-60"></div>
+        <div className="absolute -right-20 bottom-1/3 w-64 h-64 bg-orange-50 rounded-full blur-[80px] opacity-60"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             
             {/* Why Choose Us */}
             <div>
-              <h2 className="text-3xl font-bold text-[var(--color-dark)] mb-8">Why Choose Us?</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="mb-8">
+                <SectionHeader
+                  badge="Why Choose Us?"
+                  titleStart="Your"
+                  titleHighlight="Trusted"
+                  titleEnd="Partner"
+                  align="left"
+                />
+              </div>
+              <div className="grid sm:grid-cols-2 gap-6 mt-10">
                 {reasons.map((reason, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="text-[var(--color-secondary)] flex-shrink-0" size={24} />
@@ -176,8 +191,16 @@ export default function Home() {
 
             {/* Process */}
             <div>
-              <h2 className="text-3xl font-bold text-[var(--color-dark)] mb-8">Our Process</h2>
-              <div className="space-y-8">
+              <div className="mb-8">
+                <SectionHeader
+                  badge="Our Process"
+                  titleStart="How We"
+                  titleHighlight="Deliver"
+                  align="left"
+                  colorTheme="secondary"
+                />
+              </div>
+              <div className="space-y-8 mt-10">
                 {processSteps.map((step, idx) => (
                   <div key={idx} className="flex gap-6 relative">
                     {idx !== processSteps.length - 1 && (
@@ -200,13 +223,18 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-slate-50 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-dark)] mb-6">Contact Us</h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              Ready to build your next digital product? Get in touch with us today.
-            </p>
+      <section className="py-24 bg-slate-50 border-t border-slate-100 relative overflow-hidden">
+        <div className="absolute top-0 left-1/3 w-80 h-80 bg-blue-50 rounded-full blur-[100px] opacity-40"></div>
+        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-orange-50 rounded-full blur-[100px] opacity-40"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto mb-16">
+            <SectionHeader
+              badge="Contact Us"
+              titleStart="Let's Build"
+              titleHighlight="Together"
+              subtitle="Ready to build your next digital product? Get in touch with us today."
+            />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12">

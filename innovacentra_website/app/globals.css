@@ -44,3 +44,213 @@ body {
 .animate-float {
   animation: float-glow 5s ease-in-out infinite;
 }
+
+/* ─── Section Header Decorative Animations ─── */
+@keyframes accent-pulse {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.4); 
+  }
+}
+
+@keyframes badge-shimmer {
+  0% { 
+    background-position: -200% center; 
+  }
+  100% { 
+    background-position: 200% center; 
+  }
+}
+
+.section-accent-dot {
+  animation: accent-pulse 3s ease-in-out infinite;
+}
+
+.section-badge-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-badge-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 123, 255, 0.08),
+    transparent
+  );
+  animation: badge-shimmer 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Service Card v2 — 3 distinct auto-running motion types
+   Type A: float  → card levitates + glow halo
+   Type B: pulse  → border breathes in & out
+   Type C: slide  → internal content micro-slides
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Base card ── */
+.sc-card {
+  will-change: transform, box-shadow;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.sc-card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ─────────────────────────────────────────
+   TYPE A — FLOAT  (levitate + glow halo)
+   Cycle: 0, 3, 6 …
+───────────────────────────────────────── */
+.sc-anim-float {
+  animation: sc-float 6s ease-in-out infinite;
+}
+
+@keyframes sc-float {
+  0%, 100% {
+    transform: translateY(0px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05), 0 0 0 0 rgba(0,123,255,0);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 22px 40px rgba(0,0,0,0.09), 0 0 32px 4px rgba(0,123,255,0.10);
+  }
+}
+
+/* Float card — glow halo */
+.sc-halo {
+  animation: sc-halo-pulse 6s ease-in-out infinite;
+}
+
+@keyframes sc-halo-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,123,255,0); }
+  50%      { box-shadow: 0 0 32px 8px rgba(0,123,255,0.08); }
+}
+
+/* ─────────────────────────────────────────
+   TYPE B — PULSE  (breathing border)
+   Cycle: 1, 4, 7 …
+───────────────────────────────────────── */
+.sc-anim-pulse {
+  animation: sc-pulse-lift 5s ease-in-out infinite;
+}
+
+@keyframes sc-pulse-lift {
+  0%, 100% { transform: scale(1);     box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+  50%      { transform: scale(1.025); box-shadow: 0 12px 32px rgba(255,127,80,0.14); }
+}
+
+/* Pulse card — border breathing */
+.sc-border-pulse {
+  animation: sc-border-breathe 5s ease-in-out infinite;
+}
+
+@keyframes sc-border-breathe {
+  0%, 100% { border-color: rgba(255,127,80,0.15); border-width: 1.5px; }
+  50%      { border-color: rgba(255,127,80,0.50); border-width: 2.5px;  }
+}
+
+/* ─────────────────────────────────────────
+   TYPE C — SLIDE  (internal content micro-slide)
+   Cycle: 2, 5, 8 …
+───────────────────────────────────────── */
+.sc-anim-slide {
+  /* the card itself stays still, content inside moves */
+}
+
+.sc-content-slide {
+  animation: sc-content-bob 7s ease-in-out infinite;
+}
+
+@keyframes sc-content-bob {
+  0%, 100% { transform: translateY(0px); }
+  33%      { transform: translateY(-3px); }
+  66%      { transform: translateY(2px); }
+}
+
+/* ─────────────────────────────────────────
+   SHARED — vertical accent bar
+───────────────────────────────────────── */
+.sc-bar {
+  animation: sc-bar-grow 3s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes sc-bar-grow {
+  0%, 100% { transform: scaleY(0.7); opacity: 0.6; }
+  50%      { transform: scaleY(1.0); opacity: 1.0; }
+}
+
+/* ─────────────────────────────────────────
+   SHARED — icon box shimmer
+───────────────────────────────────────── */
+.sc-icon-shimmer {
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,0.55) 50%,
+    transparent 75%
+  );
+  background-size: 220% 100%;
+  animation: sc-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes sc-shimmer {
+  0%   { background-position: -220% 0; }
+  100% { background-position:  220% 0; }
+}
+
+/* ─────────────────────────────────────────
+   SHARED — arrow icon nudge on hover
+───────────────────────────────────────── */
+.sc-arrow-icon {
+  animation: sc-arrow-nudge 3s ease-in-out infinite;
+}
+
+@keyframes sc-arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   Tech Card Unique Animations
+   ═══════════════════════════════════════════════════════ */
+
+/* TYPE 1: tilt */
+.tech-anim-tilt {
+  animation: tech-tilt-anim 7s ease-in-out infinite;
+}
+@keyframes tech-tilt-anim {
+  0%, 100% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  25% { transform: perspective(1000px) rotateY(2deg) rotateX(2deg) translateY(-4px); box-shadow: -4px 14px 20px rgba(0,123,255,0.1); }
+  75% { transform: perspective(1000px) rotateY(-2deg) rotateX(-2deg) translateY(-4px); box-shadow: 4px 14px 20px rgba(255,127,80,0.1); }
+}
+
+/* TYPE 2: neon */
+.tech-anim-neon {
+  animation: tech-neon-anim 5s ease-in-out infinite;
+}
+@keyframes tech-neon-anim {
+  0%, 100% { box-shadow: 0 0 5px rgba(0,0,0,0.05), inset 0 0 0px rgba(0,0,0,0); transform: translateY(0); }
+  50% { box-shadow: 0 10px 30px rgba(0,123,255,0.2), inset 0 0 15px rgba(255,127,80,0.05); transform: translateY(-6px); }
+}
+
+/* TYPE 3: shift */
+.tech-anim-shift {
+  animation: tech-shift-anim 6s ease-in-out infinite;
+}
+@keyframes tech-shift-anim {
+  0%, 100% { transform: translateX(0) translateY(0); border-color: transparent; }
+  33% { transform: translateX(4px) translateY(-4px); border-color: rgba(0,123,255,0.2); }
+  66% { transform: translateX(-4px) translateY(-2px); border-color: rgba(255,127,80,0.2); }
+}

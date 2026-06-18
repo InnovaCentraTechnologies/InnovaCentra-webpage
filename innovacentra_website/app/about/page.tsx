@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CheckCircle2, Target, Eye, Users } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 export const metadata = {
   title: "About Us | InnovaCentra Technologies",
@@ -15,15 +16,22 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 py-20 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-50"></div>
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-orange-50 rounded-full blur-[100px] opacity-50"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-dark)] mb-6">About InnovaCentra Technologies</h1>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Founded in 2026, InnovaCentra Technologies delivers innovative technology solutions tailored to business needs. Our team focuses on quality, transparency, affordability, and long-term partnerships.
-          </p>
+        <div className="max-w-5xl mx-auto mb-20">
+          <SectionHeader
+            badge="About Us"
+            titleStart="About InnovaCentra"
+            titleHighlight="Technologies"
+            subtitle="Founded in 2026, InnovaCentra Technologies delivers innovative technology solutions tailored to business needs. Our team focuses on quality, transparency, affordability, and long-term partnerships."
+            isPageTitle
+          />
         </div>
 
         {/* Vision & Mission Image */}
@@ -41,7 +49,14 @@ export default function AboutPage() {
 
         {/* Core Values */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-[var(--color-dark)] mb-12">Our Core Values</h2>
+          <div className="mb-12">
+            <SectionHeader
+              badge="Values"
+              titleStart="Our Core"
+              titleHighlight="Values"
+              colorTheme="secondary"
+            />
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => (
               <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:-translate-y-1 transition-transform">

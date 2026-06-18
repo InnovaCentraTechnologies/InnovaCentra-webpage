@@ -24,7 +24,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Technologies', href: '/technologies' },
+    // { name: 'Technologies', href: '/technologies' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -35,8 +35,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center lg:w-1/4">
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative h-12 w-48">
-                <Image src="/image/bf9c18de-0cb9-4dc6-b6c1-62c6ff000ed6.png" alt="InnovaCentra Logo" fill className="object-contain" />
+              <div className="relative h-40 w-60">
+                <Image src="/image/logo 1.png" alt="InnovaCentra Logo" fill className="object-contain" />
               </div>
             </Link>
           </div>

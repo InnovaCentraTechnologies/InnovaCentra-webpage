@@ -10,8 +10,8 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="relative h-14 w-52 rounded-lg -ml-2">
-                <Image src="/image/bf9c18de-0cb9-4dc6-b6c1-62c6ff000ed6.png" alt="InnovaCentra Logo" fill className="object-contain" />
+            <div className="relative h-40 w-60 rounded-lg -ml-2">
+                <Image src="/image/logo 1.png" alt="InnovaCentra Logo" fill className="object-contain" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Where Innovation Finds Its Center. Transforming ideas into scalable digital products, SaaS platforms, and AI-powered solutions.
