@@ -5,6 +5,12 @@ import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, Settings, Share2, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake } from "lucide-react";
 
+export const metadata = {
+  verification: {
+    google: "UkKiAIKI7YWhhs3vDO5AZOJduJSbDWVesiJcc1m67VM"
+  }
+};
+
 export default function Home() {
   const services = [
     { title: "Web Development", icon: <Code2 size={28} />, desc: "Scalable and responsive websites built with modern frameworks.", accent: "blue" as const },
