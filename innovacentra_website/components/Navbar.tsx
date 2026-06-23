@@ -87,6 +87,7 @@ export default function Navbar() {
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-600 hover:text-[var(--color-primary)] focus:outline-none"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>

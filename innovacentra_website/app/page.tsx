@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import dynamic from "next/dynamic";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
-import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, Settings, Share2, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake } from "lucide-react";
+import { ArrowRight, CheckCircle2, Code2, Smartphone, Cpu, Cloud, Settings, Share2, ChevronRight, Mail, Phone, MapPin, Send, Target, Eye, Tag, Handshake, Star } from "lucide-react";
+import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
+
+const ContactForm = dynamic(() => import('@/components/ContactForm'));
 
 export const metadata = {
   verification: {
@@ -228,6 +231,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials / Social Proof Section */}
+      <section className="py-24 bg-slate-50 border-t border-slate-100 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-16">
+            <SectionHeader
+              badge="Testimonials"
+              titleStart="What Our Clients"
+              titleHighlight="Say"
+              subtitle="Don't just take our word for it. Here's what our partners have to say about working with InnovaCentra."
+              colorTheme="primary"
+            />
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Rahul S.", role: "Founder & CEO", company: "TechNova Solutions", text: "InnovaCentra transformed our online presence completely. Their development speed and attention to detail are unmatched." },
+              { name: "Priya M.", role: "Operations Head", company: "Global Logistics", text: "The custom software they built streamlined our operations entirely. Highly recommend their services for enterprise solutions." },
+              { name: "Arun K.", role: "Marketing Director", company: "Elevate Brands", text: "Their team doesn't just write code; they understand business goals. The UI/UX redesign increased our conversion rate by 40%." }
+            ].map((testimonial, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative">
+                <div className="flex text-yellow-400 mb-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+                </div>
+                <p className="text-slate-600 mb-6 italic">"{testimonial.text}"</p>
+                <div>
+                  <h4 className="font-bold text-[var(--color-dark)]">{testimonial.name}</h4>
+                  <p className="text-sm text-slate-500">{testimonial.role}, {testimonial.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-24 bg-slate-50 border-t border-slate-100 relative overflow-hidden">
         <div className="absolute top-0 left-1/3 w-80 h-80 bg-blue-50 rounded-full blur-[100px] opacity-40"></div>
@@ -253,25 +289,45 @@ export default function Home() {
                 <h2 className="text-2xl font-bold mb-8">Get In Touch</h2>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
-                      <Phone className="text-[var(--color-secondary)]" size={24} />
+                  <a href="tel:+918220614407" className="flex items-start gap-4 group cursor-pointer">
+                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-[var(--color-primary)] transition-colors">
+                      <Phone className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">Phone Number</h3>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[var(--color-secondary)] transition-colors">Phone Number</h3>
                       <p className="text-slate-300">+91 8220614407</p>
                     </div>
-                  </div>
+                  </a>
 
-                  <div className="flex items-start gap-4">
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
-                      <Mail className="text-[var(--color-secondary)]" size={24} />
+                  <a href="mailto:innovacentratech@gmail.com?subject=Enquiry%20for%20InnovaCentra%20Technologies&body=Hello%20InnovaCentra%20Team,%0D%0A%0D%0AI%20am%20interested%20in%20your%20services.%20Please%20provide%20more%20details.%0D%0A%0D%0ARegards," className="flex items-start gap-4 group cursor-pointer">
+                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-[var(--color-primary)] transition-colors">
+                      <Mail className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">Email Address</h3>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[var(--color-secondary)] transition-colors">Email Address</h3>
                       <p className="text-slate-300">innovacentratech@gmail.com</p>
                     </div>
-                  </div>
+                  </a>
+
+                  <a href="https://www.instagram.com/innovacentratech/" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-[var(--color-primary)] transition-colors">
+                      <InstagramIcon className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[var(--color-secondary)] transition-colors">Instagram</h3>
+                      <p className="text-slate-300">@innovacentratech</p>
+                    </div>
+                  </a>
+
+                  <a href="https://www.linkedin.com/company/innovacentra-technologies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-[var(--color-primary)] transition-colors">
+                      <LinkedinIcon className="text-[var(--color-secondary)] group-hover:text-white transition-colors" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-[var(--color-secondary)] transition-colors">LinkedIn</h3>
+                      <p className="text-slate-300">InnovaCentra Technologies</p>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>

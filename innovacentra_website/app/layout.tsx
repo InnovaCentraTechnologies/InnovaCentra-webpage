@@ -16,9 +16,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://innovacentra.com'),
   title: "InnovaCentra Technologies - Innovative IT Solutions",
   description: "InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products.",
   keywords: "IT Solutions Company, Software Development Company, Web Development Company, Mobile App Development Company, AI Development Services, IT Company in Chennai",
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "InnovaCentra Technologies - Innovative IT Solutions",
+    description: "InnovaCentra Technologies is a modern IT solutions company helping startups, businesses, and enterprises transform ideas into powerful digital products.",
+    url: "https://innovacentra.com",
+    siteName: "InnovaCentra Technologies",
+    images: [
+      {
+        url: "/image/logo%201.png",
+        width: 1200,
+        height: 630,
+        alt: "InnovaCentra Technologies",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "InnovaCentra Technologies",
+    description: "Transforming ideas into powerful digital products.",
+    images: ["/image/logo%201.png"],
+  },
 };
 
 export default function RootLayout({

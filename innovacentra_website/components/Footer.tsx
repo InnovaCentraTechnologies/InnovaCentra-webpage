@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, MessageCircle } from 'lucide-react';
+import { InstagramIcon, LinkedinIcon } from './SocialIcons';
+import LegalModals from './LegalModals';
 
 export default function Footer() {
   return (
@@ -59,6 +61,17 @@ export default function Footer() {
                 <Mail className="text-[var(--color-primary)] flex-shrink-0" size={20} />
                 <span className="text-sm">innovacentratech@gmail.com</span>
               </li>
+              <li className="pt-4 flex gap-4 mt-2">
+                <a href="https://wa.me/918220614407" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-2.5 rounded-lg hover:bg-[#25D366] transition-colors group">
+                  <MessageCircle className="text-slate-300 group-hover:text-white transition-colors" size={20} />
+                </a>
+                <a href="https://www.instagram.com/innovacentratech/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-2.5 rounded-lg hover:bg-[#E1306C] transition-colors group">
+                  <InstagramIcon className="text-slate-300 group-hover:text-white transition-colors" size={20} />
+                </a>
+                <a href="https://www.linkedin.com/company/innovacentra-technologies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-2.5 rounded-lg hover:bg-[#0077B5] transition-colors group">
+                  <LinkedinIcon className="text-slate-300 group-hover:text-white transition-colors" size={20} />
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -68,11 +81,7 @@ export default function Footer() {
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} InnovaCentra Technologies. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
-            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
-          </div>
+          <LegalModals />
         </div>
       </div>
     </footer>
