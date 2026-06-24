@@ -12,9 +12,11 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="space-y-4">
-            <div className="relative h-40 w-60 rounded-lg -ml-2">
-                <Image src="/image/logo 1.png" alt="InnovaCentra Logo" fill className="object-contain" />
-            </div>
+            <Link href="/" className="inline-block">
+              <div className="relative h-40 w-60 rounded-lg -ml-2 cursor-pointer">
+                  <Image src="/image/logo 1.png" alt="InnovaCentra Logo" fill className="object-contain" />
+              </div>
+            </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
               Where Innovation Finds Its Center. Transforming ideas into scalable digital products, SaaS platforms, and AI-powered solutions.
             </p>
@@ -77,11 +79,13 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-slate-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-slate-800 mt-10 pt-6 pb-12 md:pb-0 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} InnovaCentra Technologies. All rights reserved.
           </p>
-          <LegalModals />
+          <div className="md:pr-24">
+            <LegalModals />
+          </div>
         </div>
       </div>
     </footer>

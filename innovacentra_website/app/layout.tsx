@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
+import PopupContact from "@/components/PopupContact";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -64,6 +65,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingContact />
+        <PopupContact />
       </body>
     </html>
   );

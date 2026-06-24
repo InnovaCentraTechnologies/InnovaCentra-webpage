@@ -34,7 +34,16 @@ export default function Navbar() {
       <nav className={`max-w-7xl mx-auto transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-2xl px-4 sm:px-6 lg:px-8' : 'bg-transparent px-4 sm:px-6 lg:px-8 py-2'}`}>
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center lg:w-1/4">
-            <Link href="/" className="flex items-center gap-2">
+            <Link 
+              href="/" 
+              className="flex items-center gap-2"
+              onClick={(e) => {
+                if (pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <div className="relative h-40 w-60">
                 <Image src="/image/logo 1.png" alt="InnovaCentra Logo" fill className="object-contain" />
               </div>
